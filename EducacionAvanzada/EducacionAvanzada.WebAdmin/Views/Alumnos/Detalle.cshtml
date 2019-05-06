@@ -1,0 +1,64 @@
+﻿@model EducacionAvanzada.BL.Alumno
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Alumno</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grado.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jornada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jornada.Descripcion)
+        </dd>
+
+        <dt>
+            Sección
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seccion.Descripcion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlImagen)
+        </dt>
+
+        <dd>
+
+            <img src="@Model.UrlImagen" alt="@Model.Nombre" style="width:200px; height: auto; " />
+          </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.activo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.activo)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
+    @Html.ActionLink("Regresar a Lista de Alumnos", "Index")
+</p>

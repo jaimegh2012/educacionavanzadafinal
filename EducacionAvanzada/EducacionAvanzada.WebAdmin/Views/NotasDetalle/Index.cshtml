@@ -1,0 +1,81 @@
+﻿@model EducacionAvanzada.BL.Notas
+
+@{
+    ViewBag.Title = "Notas Detalle";
+}
+
+<h2>Detalle de Notas No: @Model.Id</h2>
+
+<hr />
+
+<div>
+     
+</div>
+
+<p>
+    @Html.ActionLink("Nueva Nota", "Crear" ,new { id = Model.Id })
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+           Alumno
+        </th>
+        <th>
+            Materia
+        </th>
+        <th>
+            PrimerParcial
+        </th>
+        <th>
+            SegundoParcial
+        </th>
+        <th>
+            TercerParcial
+        </th>
+        <th>
+           CuartoParcial
+        </th>
+        <th>
+            NotaFinal
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.ListadeNotasDetalle) {
+    <tr>
+        <td>
+            <img src="@item.Alumno.UrlImagen" alt="@item.Alumno.Nombre" style="max-width: 64px; height: auto;" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alumno.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Materia.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimerParcial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SegundoParcial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TercerParcial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CuartoParcial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NotaFinal)
+        <td>
+        |
+            @Html.ActionLink("Editar", "Editar", new { id = item.Id })
+            @Html.ActionLink("Eliminar", "Eliminar", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+@Html.ActionLink("Regresar a notas", "Index", "Notas")

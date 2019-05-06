@@ -1,0 +1,40 @@
+﻿@model List<EducacionAvanzada.BL.Alumno>
+@{
+    ViewBag.Title = "Alumnos";
+}
+
+<h2></h2>
+
+        @foreach (var alumno in Model)
+        {
+            if (alumno.Grado.Id == 1)
+            {
+                alumno.Grado.Descripcion = "Primer";
+            }
+
+            if (alumno.Grado.Id == 3)
+            {
+                alumno.Grado.Descripcion = "Tercer";
+            }
+
+
+
+            <div class="col-md-4 speaker">
+                <img src="@(ViewBag.adminWebsiteUrl + alumno.UrlImagen)" class="img-fluid"  alt="Colorlib HTML5 Template" width="200px" height="250px">
+                <div class="text text-center pt-3">
+                    <h3>@alumno.Nombre</h3>
+                    <span class="position">@alumno.Grado.Descripcion Grado</span>
+                    <ul class="ftco-social mt-3">
+                        <li class="ftco-animate"><a href="#"><img src="~/images/notas.png" width="54px" height="auto" />@Html.ActionLink("Notas", "Index", "Notas", new { id = alumno.Id }, null)</a></li>
+                        <li class="ftco-animate"><a href="#"><img src="~/images/tareas.png" width="50px" height="auto" />Tareas</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            
+
+
+
+
+        }
+

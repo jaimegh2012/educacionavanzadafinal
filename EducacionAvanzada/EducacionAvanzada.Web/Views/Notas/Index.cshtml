@@ -1,0 +1,54 @@
+﻿@model EducacionAvanzada.BL.Alumno
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+    <div>
+        <h2>NOTAS DEL ALUMNO</h2>
+    </div>
+      <div>
+        <table class="table table-hover table-bordered table-info ">
+
+            <tr>
+                
+                <td><h5>Materia</h5></td>
+                <td><h5>Primer Parcial</h5></td>
+                <td><h5>Segundo Parcial</h5></td>
+                <td><h5>Tercer Parcial</h5></td>
+                <td><h5>Cuarto Parcial</h5></td>
+                <td><h5>Nota Final</h5></td>
+                <!--
+                <td><h3>@Html.ActionLink("Regresar", "Index", "Alumnos", new { id = Model.PadreId }, null)</h3></td>    
+                -->
+               
+                <td>
+                    <div class="form-group">
+                        <a href="/Alumnos/Index/@ViewBag.Padre"><input type="submit" value="REGRESAR" class="btn btn-secondary py-2 px-2"></a>
+                    </div>
+                </td>
+                
+                    
+                
+
+            </tr>
+            
+
+            @foreach (var alumno in Model.ListadeNotas)
+            {
+                <tr>
+                    <td><h5>@alumno.Materia.Descripcion</h5></td>
+                    <td><h5>@alumno.PrimerParcial</h5></td>
+                    <td><h5>@alumno.SegundoParcial</h5></td>
+                    <td><h5>@alumno.TercerParcial</h5></td>
+                    <td><h5>@alumno.CuartoParcial</h5></td>
+                    <td><h5>@alumno.NotaFinal</h5></td>
+                </tr>
+
+            }
+
+            
+        </table>
+
+    </div>

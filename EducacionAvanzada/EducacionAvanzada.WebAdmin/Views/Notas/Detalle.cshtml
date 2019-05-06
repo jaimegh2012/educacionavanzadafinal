@@ -1,0 +1,50 @@
+﻿@model EducacionAvanzada.BL.Notas
+
+@{
+    ViewBag.Title = "Detalle";
+}
+
+<h2>Detalle</h2>
+
+<div>
+    <h4>Notas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Grado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grado.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jornada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jornada.Descripcion)
+        </dd>
+
+        <dt>
+            Sección
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.seccion.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Anio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Anio)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Editar", new { id = Model.Id }) |
+    @Html.ActionLink("Regresar a Notas", "Index")
+</p>

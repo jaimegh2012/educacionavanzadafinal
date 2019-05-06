@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EducacionAvanzada.BL.Alumno>
+
+@{
+    ViewBag.Title = "Alumnos";
+}
+
+<h2>Listado de Alumnos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Alumno", "Crear")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Jornada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.seccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrlImagen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.activo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grado.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jornada.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.seccion.Descripcion)
+        </td>
+        <td>
+            <img src="@item.UrlImagen" alt="@item.Nombre" style="width:64px; height: auto; " />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.activo)
+        </td>
+        <td>
+
+            @Html.ActionLink("Editar", "Editar", new { id = item.Id }) |
+            @Html.ActionLink("Detalle", "Detalle", new { id = item.Id }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id = item.Id })
+        </td>
+    </tr>
+}
+
+</table>
